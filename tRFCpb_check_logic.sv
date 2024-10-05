@@ -58,6 +58,9 @@ module tRFCpb_checker #
 		end
 	end
 
+	// ==== Logic for generating the counter-trigger signals (i.e., start signals) ====
+	assign trfc_pb_cntr_triggers = selected_trfc_pb_cntr & {NUM_TRFC_PB_CNTRS{refpb_issued}};
+
 	// ==== Instantiate the Refresh-Cycle-Time (tRFCpb) Counters ====
 	genvar n;
 	generate
