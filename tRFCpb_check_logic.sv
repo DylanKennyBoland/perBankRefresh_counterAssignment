@@ -81,6 +81,17 @@ module tRFCpb_checker #
 		end
 	endgenerate
 
+	// ==== Logic for driving the Bank-Address Bus (bank_assigned_trfc_pb_cntr) ====
+	always_comb begin
+		for (int i = 0; i < NUM_TRFC_PB_CNTRS; i = i + 1) begin
+			// Define the default behaviour
+			bank_assigned_trfc_pb_cntr[i] = {BANK_ADDR_WIDTH{1'b0}};
+			if (selected_trfc_pb_cntr[i]) begin
+				bank_assigned_trfc_pb_cntr[i] = pbr_target_bank;
+			end
+		end
+	end
+
 endmodule
 
 
