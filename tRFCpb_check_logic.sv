@@ -14,6 +14,7 @@ module tRFCpb_checker #
 	input logic clk,
 	input logic rst_n,
 	input logic refpb_issued,
+	input logic [BANK_ADDR_WIDTH-1:0] pbr_target_bank,
 	// ==== Outputs ====
 	output logic [NUM_BANKS-1:0] trfc_pb_met // indicates which banks have met the tRFCpb time requirement
 	);
